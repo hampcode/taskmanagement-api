@@ -1,5 +1,12 @@
 # Task Management API 🧩
 
+![Java](https://img.shields.io/badge/Java-21-blue.svg)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.1-brightgreen.svg)
+![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-blue)
+![Maven](https://img.shields.io/badge/Maven-3.9+-orange)
+![Status](https://img.shields.io/badge/Status-Stable-green)
+![License](https://img.shields.io/badge/License-MIT-yellow.svg)
+
 API REST desarrollada con **Spring Boot 3** para la gestión de tareas y developers, orientada a equipos de desarrollo de software. Este backend está diseñado para ser consumido por aplicaciones frontend web o móviles.
 
 ## ✨ Características
