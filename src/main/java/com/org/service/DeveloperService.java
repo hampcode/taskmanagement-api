@@ -41,8 +41,7 @@ public class DeveloperService {
     }
 
     @Transactional(readOnly = true)
-    public Page<DeveloperResponse> findPaginated(int page, int size) {
-        Pageable pageable = PageRequest.of(page, size);
+    public Page<DeveloperResponse> findAll(Pageable pageable) {
         return developerRepository.findAll(pageable)
                 .map(developerMapper::toResponse);
     }
