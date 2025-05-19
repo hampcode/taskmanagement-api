@@ -5,6 +5,7 @@ import com.org.dto.response.DeveloperResponse;
 import com.org.service.DeveloperService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,11 +33,8 @@ public class DeveloperController {
     }
 
     @GetMapping("/paginated")
-    public ResponseEntity<Page<DeveloperResponse>> getPaginated(
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "5") int size
-    ) {
-        return ResponseEntity.ok(developerService.findPaginated(page, size));
+    public ResponseEntity<Page<DeveloperResponse>> getPaginated(Pageable pageable) {
+        return ResponseEntity.ok(developerService.findAll(pageable));
     }
 
     @GetMapping("/{id}")
