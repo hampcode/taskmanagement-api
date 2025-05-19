@@ -1,0 +1,562 @@
+{
+	"info": {
+		"_postman_id": "eae67361-550e-4f47-9ae5-3c969569e52c",
+		"name": "taskmanagment-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6246033"
+	},
+	"item": [
+		{
+			"name": "developer",
+			"item": [
+				{
+					"name": "Crear Developer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Carlos Romero\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/developers",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"developers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Developers (Todos)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/developers",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"developers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Developers (Paginado)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/developers/paginated?page=0&size=5&sort=name,asc",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"developers",
+								"paginated"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "5"
+								},
+								{
+									"key": "sort",
+									"value": "name,asc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Developer por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/developers/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"developers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Developer",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Carlos R. Actualizado\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/developers/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"developers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Developer",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/developers/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"developers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "task",
+			"item": [
+				{
+					"name": "Crear tarea",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Diseñar pantalla de login\",\n  \"description\": \"Maquetar y definir estilos del login\",\n  \"developerId\": 2,\n  \"startDate\": \"2025-05-20\",\n  \"endDate\": \"2025-05-24\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/tasks",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Tarea – Fallo por título duplicado",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Diseñar pantalla de login\",\n  \"description\": \"Tarea repetida\",\n  \"developerId\": 2,\n  \"startDate\": \"2025-06-01\",\n  \"endDate\": \"2025-06-05\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/tasks",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Tarea – Fallo por developer inexistente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Nueva tarea 6\",\n  \"description\": \"Developer no existe\",\n  \"developerId\": 2,\n  \"startDate\": \"2025-06-01\",\n  \"endDate\": \"2025-06-10\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/tasks",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cambiar estado – Correcto (PENDING → IN_PROGRESS)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tasks/3/status?status=IN_PROGRESS",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tasks",
+								"3",
+								"status"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "IN_PROGRESS"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cambiar estado – Incorrecto (COMPLETED sin pasar por IN_PROGRESS)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tasks/4/status?status=COMPLETED",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tasks",
+								"4",
+								"status"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "COMPLETED"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cambiar estado – Incorrecto (IN_PROGRESS desde COMPLETED)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tasks/4/status?status=IN_PROGRESS",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tasks",
+								"4",
+								"status"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "IN_PROGRESS"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Tarea por ID – Correcto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tasks/3",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tasks",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Tarea por ID – ID inexistente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tasks/999",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tasks",
+								"999"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Tarea – Correcto (estado PENDING)",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Actualizar documentación\",\n  \"description\": \"Revisar y actualizar documentación técnica\",\n  \"developerId\": 2,\n  \"startDate\": \"2025-05-21\",\n  \"endDate\": \"2025-05-28\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/tasks/5",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tasks",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Tarea – Incorrecto (estado distinto a PENDING)",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Optimizar consultas SQL\",\n  \"description\": \"Mejorar el rendimiento de la base de datos\",\n  \"developerId\": 2,\n  \"startDate\": \"2025-05-22\",\n  \"endDate\": \"2025-05-29\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/tasks/4",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tasks",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar por Rango de Fechas – Correcto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tasks/range?start=2025-05-01&end=2025-06-10",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tasks",
+								"range"
+							],
+							"query": [
+								{
+									"key": "start",
+									"value": "2025-05-01"
+								},
+								{
+									"key": "end",
+									"value": "2025-06-10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar por Rango – Incorrecto (start > end)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tasks/range?start=2025-06-01&end=2025-05-01",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tasks",
+								"range"
+							],
+							"query": [
+								{
+									"key": "start",
+									"value": "2025-06-01"
+								},
+								{
+									"key": "end",
+									"value": "2025-05-01"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Tarea – Correcto",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tasks/3",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tasks",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Tarea – Tarea inexistente",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tasks/999",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tasks",
+								"999"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tareas activas por Developer – Correcto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tasks/developer/2/active",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tasks",
+								"developer",
+								"2",
+								"active"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tareas activas – Developer no existe",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tasks/developer/999/active",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tasks",
+								"developer",
+								"999",
+								"active"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8080/api/v1",
+			"type": "string"
+		}
+	]
+}
