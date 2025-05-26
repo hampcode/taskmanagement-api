@@ -129,6 +129,27 @@ Incluye:
 
 ---
 
+## ✅ Pruebas Unitarias
+
+Este proyecto cuenta con cobertura completa de pruebas unitarias para `DeveloperService` y `TaskService` usando **JUnit 5** y **Mockito**.
+
+| Servicio           | Métodos | Líneas | Branches |
+|--------------------|---------|--------|----------|
+| DeveloperService   | 100%    | 100%   | 83%      |
+| TaskService        | 100%    | 100%   | 83%+     |
+
+### Casos cubiertos:
+
+- Creación, actualización, eliminación y búsqueda de developers y tareas
+- Reglas de negocio para estados, duplicados y límites
+- Paginación y consultas por fechas
+- Validaciones de excepciones esperadas
+
+Ubicación de tests: `src/test/java/com/org/service/`
+
+
+---
+
 ## 🤝 Autor
 
 **Henry Mendoza (Hampcode)**  
