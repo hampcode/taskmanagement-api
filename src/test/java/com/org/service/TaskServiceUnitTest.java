@@ -115,7 +115,7 @@ public class TaskServiceUnitTest {
         assertThrows(BusinessRuleException.class, () -> taskService.create(request));
     }
 
-    // Continuación de TaskServiceUnitTest.java para CP18 - CP29
+
 
     @Test
     @DisplayName("CP18 - PENDING → IN_PROGRESS (válido)")
