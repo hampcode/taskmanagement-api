@@ -6,6 +6,7 @@
 ![Maven](https://img.shields.io/badge/Maven-3.9+-orange)
 ![Status](https://img.shields.io/badge/Status-Stable-green)
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Tests](https://img.shields.io/badge/Tests-Passing-brightgreen)
 
 API REST desarrollada con **Spring Boot 3** para la gestión de tareas y developers, orientada a equipos de desarrollo de software. Este backend está diseñado para ser consumido por aplicaciones frontend web o móviles.
 
