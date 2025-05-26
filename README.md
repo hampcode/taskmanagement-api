@@ -129,19 +129,32 @@ Incluye:
 ---
 
 ## ✅ Pruebas Unitarias
-¿Qué son las pruebas unitarias?
+### ¿Qué son las pruebas unitarias?
 
-Las pruebas unitarias son pruebas automatizadas que validan el comportamiento correcto de una unidad de código (por lo general, un método o función) de forma aislada. Se implementan para asegurar que cada componente de la aplicación funciona según lo esperado, con entradas válidas e inválidas. Estas pruebas se suelen implementar con herramientas como JUnit 5 y Mockito, permitiendo simular dependencias y controlar el entorno de prueba.
+Las pruebas unitarias son pruebas automatizadas que validan el comportamiento correcto de una unidad de código (por lo general, un método o función) de forma aislada.  
+Se implementan para asegurar que cada componente de la aplicación funciona según lo esperado, con entradas válidas e inválidas.
 
-¿Qué es un caso de prueba?
+Estas pruebas se suelen implementar con herramientas como **JUnit 5** y **Mockito**, permitiendo simular dependencias y controlar el entorno de prueba.
+
+---
+
+### ¿Qué es un caso de prueba?
+
 Un caso de prueba es una situación concreta que define:
--Una condición de entrada.
--Una acción a ejecutar.
--Un resultado esperado.
+
+- Una condición de entrada  
+- Una acción a ejecutar  
+- Un resultado esperado  
+
 Los casos de prueba ayudan a verificar que una funcionalidad específica se comporta como se espera.
 
-Relación con Historias de Usuario y Criterios de Aceptación
-Cada caso de prueba debe estar vinculado a una historia de usuario (HU), y su diseño debe responder a los criterios de aceptación definidos. Esta trazabilidad asegura que el sistema cumple con lo solicitado por los usuarios.
+---
+
+### Relación con Historias de Usuario y Criterios de Aceptación
+
+Cada caso de prueba debe estar vinculado a una **Historia de Usuario (HU)**, y su diseño debe responder a los **criterios de aceptación** definidos.  
+Esta trazabilidad asegura que el sistema cumple con lo solicitado por los usuarios.
+
 
 ### Ejemplo: HU06 – Crear Tarea
 
